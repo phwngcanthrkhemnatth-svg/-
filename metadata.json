@@ -1,0 +1,6 @@
+{
+  "name": "SkillsWop",
+  "description": "SkillsWop - แพลตฟอร์มคอมมูนิตี้แลกเปลี่ยนทักษะและความรู้ทางออนไลน์ระหว่างผู้ใช้งานจริง รองรับการค้นหาเพื่อน แชต แลกเปลี่ยนวิชา และระบบโปรไฟล์ทักษะ",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

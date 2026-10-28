@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <!-- Background Sphere Radial Gradient -->
+    <radialGradient id="orbSpace" cx="48%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#181c54" />
+      <stop offset="40%" stop-color="#0d1038" />
+      <stop offset="75%" stop-color="#050720" />
+      <stop offset="100%" stop-color="#02030f" />
+    </radialGradient>
+
+    <!-- Outer Rim Neon Gradients -->
+    <linearGradient id="rimGradient" x1="10%" y1="10%" x2="90%" y2="90%">
+      <stop offset="0%" stop-color="#ec4899" />
+      <stop offset="22%" stop-color="#d946ef" />
+      <stop offset="45%" stop-color="#8b5cf6" />
+      <stop offset="70%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+
+    <radialGradient id="outerAura" cx="50%" cy="50%" r="50%">
+      <stop offset="70%" stop-color="#8b5cf6" stop-opacity="0" />
+      <stop offset="88%" stop-color="#c084fc" stop-opacity="0.45" />
+      <stop offset="96%" stop-color="#38bdf8" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Left Avatar Gradients -->
+    <radialGradient id="leftHeadGrad" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="30%" stop-color="#fdf4ff" />
+      <stop offset="65%" stop-color="#e879f9" />
+      <stop offset="90%" stop-color="#c084fc" />
+      <stop offset="100%" stop-color="#9333ea" />
+    </radialGradient>
+
+    <linearGradient id="leftBodyGrad" x1="25%" y1="10%" x2="75%" y2="90%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+      <stop offset="25%" stop-color="#f5d0fe" stop-opacity="0.9" />
+      <stop offset="65%" stop-color="#d946ef" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#7e22ce" stop-opacity="0.55" />
+    </linearGradient>
+
+    <!-- Right Avatar Gradients -->
+    <radialGradient id="rightHeadGrad" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="30%" stop-color="#f0fdfa" />
+      <stop offset="65%" stop-color="#67e8f9" />
+      <stop offset="90%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </radialGradient>
+
+    <linearGradient id="rightBodyGrad" x1="25%" y1="10%" x2="75%" y2="90%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+      <stop offset="25%" stop-color="#bae6fd" stop-opacity="0.9" />
+      <stop offset="65%" stop-color="#0ea5e9" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#1e40af" stop-opacity="0.55" />
+    </linearGradient>
+
+    <!-- Arrow Core and Glow -->
+    <linearGradient id="topArrowBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="40%" stop-color="#f0fdfa" />
+      <stop offset="80%" stop-color="#7dd3fc" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+
+    <linearGradient id="botArrowBody" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="40%" stop-color="#fdf4ff" />
+      <stop offset="80%" stop-color="#f0abfc" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <!-- Neon Glow Filters -->
+    <filter id="glowIntense" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="24" result="blur1" />
+      <feGaussianBlur stdDeviation="10" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur1" />
+        <feMergeNode in="blur2" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="starBloom" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="glow" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Clip Path inside the orb -->
+    <clipPath id="orbBoundary">
+      <circle cx="512" cy="512" r="420" />
+    </clipPath>
+  </defs>
+
+  <!-- Ambient Outer Glow Rings -->
+  <circle cx="512" cy="512" r="435" fill="none" stroke="url(#rimGradient)" stroke-width="28" filter="url(#glowIntense)" opacity="0.85" />
+  <circle cx="512" cy="512" r="420" fill="url(#outerAura)" />
+
+  <!-- Base Dark Spherical Orb -->
+  <circle cx="512" cy="512" r="420" fill="url(#orbSpace)" />
+
+  <!-- Content Cliped inside Glass Sphere -->
+  <g clip-path="url(#orbBoundary)">
+    <!-- Cosmic Ambient Clouds -->
+    <circle cx="320" cy="640" r="260" fill="#d946ef" opacity="0.22" filter="url(#glowIntense)" />
+    <circle cx="720" cy="580" r="280" fill="#0284c7" opacity="0.26" filter="url(#glowIntense)" />
+    <circle cx="512" cy="300" r="220" fill="#38bdf8" opacity="0.18" filter="url(#glowIntense)" />
+
+    <!-- Luminous Energy Swooshes / Caustics -->
+    <!-- Magenta lower swirl -->
+    <path d="M140,580 C200,820 440,910 660,860 C480,830 310,750 240,570 Z" fill="#d946ef" opacity="0.4" filter="url(#glowIntense)" />
+    <!-- Cyan lower swirl -->
+    <path d="M884,460 C900,680 780,850 560,890 C720,810 820,680 810,480 Z" fill="#00e5ff" opacity="0.45" filter="url(#glowIntense)" />
+    <!-- Center connecting wave -->
+    <path d="M220,700 C360,860 660,860 800,700 C680,800 340,800 220,700 Z" fill="#818cf8" opacity="0.35" filter="url(#glowIntense)" />
+
+    <!-- Left Avatar (Pink/Violet Theme) -->
+    <g filter="url(#glowIntense)">
+      <!-- Body -->
+      <path d="M230,644 C230,550 300,512 360,512 C420,512 458,542 450,582 C442,620 404,654 402,662 C396,678 410,708 436,716 C378,726 338,718 310,706 C264,688 230,668 230,644 Z" fill="url(#leftBodyGrad)" />
+      <!-- Left Avatar Head -->
+      <circle cx="356" cy="430" r="70" fill="url(#leftHeadGrad)" />
+      <!-- Specular Pearl Highlight -->
+      <circle cx="340" cy="412" r="26" fill="#ffffff" opacity="0.65" />
+    </g>
+
+    <!-- Right Avatar (Cyan/Blue Theme) -->
+    <g filter="url(#glowIntense)">
+      <!-- Body -->
+      <path d="M794,674 C794,580 724,542 664,542 C604,542 566,572 574,612 C582,650 620,684 622,692 C628,708 614,738 588,746 C646,756 686,748 714,736 C760,718 794,698 794,674 Z" fill="url(#rightBodyGrad)" />
+      <!-- Right Avatar Head -->
+      <circle cx="668" cy="460" r="70" fill="url(#rightHeadGrad)" />
+      <!-- Specular Pearl Highlight -->
+      <circle cx="652" cy="442" r="26" fill="#ffffff" opacity="0.65" />
+    </g>
+
+    <!-- Top Arrow (Circulating from Left Figure to Right Figure) -->
+    <g filter="url(#glowIntense)">
+      <!-- Outer Bloom -->
+      <path d="M438,390 C464,342 516,316 578,322 C618,326 652,342 676,368" fill="none" stroke="#00f0ff" stroke-width="44" stroke-linecap="round" opacity="0.45" />
+      <!-- Main Core Path -->
+      <path d="M438,390 C464,342 516,316 578,322 C618,326 652,342 676,368" fill="none" stroke="url(#topArrowBody)" stroke-width="32" stroke-linecap="round" />
+      <path d="M438,390 C464,342 516,316 578,322 C618,326 652,342 676,368" fill="none" stroke="#ffffff" stroke-width="16" stroke-linecap="round" />
+
+      <!-- Sleek Arrowhead pointing right-down -->
+      <path d="M682,324 L724,396 L646,386 Z" fill="url(#topArrowBody)" />
+      <path d="M682,336 L712,390 L656,382 Z" fill="#ffffff" />
+    </g>
+
+    <!-- Bottom Arrow (Circulating from Right Figure to Left Figure) -->
+    <g filter="url(#glowIntense)">
+      <!-- Outer Bloom -->
+      <path d="M586,634 C560,682 508,708 446,702 C406,698 372,682 348,656" fill="none" stroke="#e879f9" stroke-width="44" stroke-linecap="round" opacity="0.45" />
+      <!-- Main Core Path -->
+      <path d="M586,634 C560,682 508,708 446,702 C406,698 372,682 348,656" fill="none" stroke="url(#botArrowBody)" stroke-width="32" stroke-linecap="round" />
+      <path d="M586,634 C560,682 508,708 446,702 C406,698 372,682 348,656" fill="none" stroke="#ffffff" stroke-width="16" stroke-linecap="round" />
+
+      <!-- Sleek Arrowhead pointing left-up -->
+      <path d="M342,700 L300,628 L378,638 Z" fill="url(#botArrowBody)" />
+      <path d="M342,688 L312,634 L368,642 Z" fill="#ffffff" />
+    </g>
+
+    <!-- Sparkle Stars in Upper Right -->
+    <!-- Large 4-pointed Star -->
+    <g filter="url(#starBloom)">
+      <!-- Radiant pink halo -->
+      <circle cx="678" cy="266" r="42" fill="#ec4899" opacity="0.5" filter="url(#glowIntense)" />
+      <path d="M678,198 Q678,266 746,266 Q678,266 678,334 Q678,266 610,266 Q678,266 678,198 Z" fill="#ffffff" />
+      <path d="M678,224 Q678,266 720,266 Q678,266 678,308 Q678,266 636,266 Q678,266 678,224 Z" fill="#fdf4ff" />
+    </g>
+
+    <!-- Medium 4-pointed Star -->
+    <g filter="url(#starBloom)">
+      <!-- Radiant pink/cyan halo -->
+      <circle cx="758" cy="336" r="26" fill="#d946ef" opacity="0.45" filter="url(#glowIntense)" />
+      <path d="M758,294 Q758,336 800,336 Q758,336 758,378 Q758,336 716,336 Q758,336 758,294 Z" fill="#ffffff" />
+      <path d="M758,310 Q758,336 784,336 Q758,336 758,362 Q758,336 732,336 Q758,336 758,310 Z" fill="#fce7f3" />
+    </g>
+
+    <!-- Tiny Sparkles -->
+    <circle cx="636" cy="316" r="6" fill="#ffffff" opacity="0.85" filter="url(#starBloom)" />
+    <circle cx="794" cy="280" r="5" fill="#ffffff" opacity="0.75" filter="url(#starBloom)" />
+
+    <!-- Glass Dome Curvature Specular Reflection -->
+    <path d="M260,180 C340,126 460,108 560,116 C644,122 724,150 784,196 C704,158 610,138 512,138 C386,138 290,168 260,180 Z" fill="#ffffff" opacity="0.38" />
+  </g>
+
+  <!-- Glowing Circular Glass Rim Ring -->
+  <circle cx="512" cy="512" r="420" fill="none" stroke="url(#rimGradient)" stroke-width="12" opacity="0.95" />
+  <circle cx="512" cy="512" r="420" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.6" />
+</svg>

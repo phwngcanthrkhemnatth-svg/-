@@ -1,0 +1,175 @@
+{
+  "entities": {
+    "User": {
+      "collection": "users",
+      "fields": {
+        "uid": { "type": "string", "description": "Firebase Auth UID" },
+        "name": { "type": "string", "description": "User's display name" },
+        "email": { "type": "string", "description": "User's email address" },
+        "profileImage": { "type": "string", "description": "User's avatar URL or base64 data" },
+        "bio": { "type": "string", "description": "User's short bio" },
+        "location": { "type": "string", "description": "User's city or province" },
+        "phone": { "type": "string", "description": "User's phone number" },
+        "role": { "type": "string", "description": "Role: user or admin" },
+        "rating": { "type": "number", "description": "Average rating score" },
+        "reviewCount": { "type": "number", "description": "Total reviews received" },
+        "completedExchanges": { "type": "number", "description": "Number of completed exchanges" },
+        "createdAt": { "type": "string", "description": "Account creation ISO date" },
+        "updatedAt": { "type": "string", "description": "Last profile update ISO date" }
+      }
+    },
+    "Skill": {
+      "collection": "skills",
+      "fields": {
+        "skillId": { "type": "string", "description": "Skill unique identifier" },
+        "name": { "type": "string", "description": "Skill name" },
+        "description": { "type": "string", "description": "Detailed skill description" },
+        "category": { "type": "string", "description": "Skill category e.g. Programming, Language, Music" },
+        "createdBy": { "type": "string", "description": "UID of creator" },
+        "createdAt": { "type": "string", "description": "Creation ISO date" }
+      }
+    },
+    "UserSkill": {
+      "collection": "userSkills",
+      "fields": {
+        "userSkillId": { "type": "string", "description": "Record identifier" },
+        "userId": { "type": "string", "description": "UID of user possessing this skill" },
+        "skillId": { "type": "string", "description": "Referenced skill ID" },
+        "skillName": { "type": "string", "description": "Name of the skill" },
+        "level": { "type": "string", "description": "Proficiency level: Beginner, Intermediate, Advanced" },
+        "description": { "type": "string", "description": "What they can teach or share" },
+        "type": { "type": "string", "description": "teach or learn" },
+        "createdAt": { "type": "string", "description": "Added ISO date" }
+      }
+    },
+    "ExchangeRequest": {
+      "collection": "exchangeRequests",
+      "fields": {
+        "requestId": { "type": "string", "description": "Request unique identifier" },
+        "requesterId": { "type": "string", "description": "UID of user offering swap" },
+        "receiverId": { "type": "string", "description": "UID of recipient" },
+        "offeredSkillId": { "type": "string", "description": "Skill offered by requester" },
+        "requestedSkillId": { "type": "string", "description": "Skill requested from receiver" },
+        "message": { "type": "string", "description": "Introduction message" },
+        "status": { "type": "string", "description": "pending, accepted, rejected, cancelled, or completed" },
+        "createdAt": { "type": "string", "description": "Timestamp created" },
+        "updatedAt": { "type": "string", "description": "Timestamp updated" }
+      }
+    },
+    "Chat": {
+      "collection": "chats",
+      "fields": {
+        "chatId": { "type": "string", "description": "Chat thread identifier" },
+        "participantIds": { "type": "array", "description": "Array of 2 participant UIDs" },
+        "lastMessage": { "type": "string", "description": "Snippet of latest message" },
+        "lastMessageAt": { "type": "string", "description": "Timestamp of latest message" },
+        "createdAt": { "type": "string", "description": "Chat creation timestamp" }
+      }
+    },
+    "Message": {
+      "collection": "messages",
+      "fields": {
+        "messageId": { "type": "string", "description": "Message unique identifier" },
+        "chatId": { "type": "string", "description": "Associated chat thread" },
+        "senderId": { "type": "string", "description": "UID of message sender" },
+        "content": { "type": "string", "description": "Text content" },
+        "createdAt": { "type": "string", "description": "Message send timestamp" },
+        "read": { "type": "boolean", "description": "Whether recipient has read this" }
+      }
+    },
+    "Review": {
+      "collection": "reviews",
+      "fields": {
+        "id": { "type": "string", "description": "Review identifier" },
+        "reviewerId": { "type": "string", "description": "UID of reviewer" },
+        "reviewedUserId": { "type": "string", "description": "UID of reviewed partner" },
+        "rating": { "type": "number", "description": "Star rating 1-5" },
+        "comment": { "type": "string", "description": "Feedback message" },
+        "skillName": { "type": "string", "description": "Skill reviewed" },
+        "createdAt": { "type": "string", "description": "Review timestamp" }
+      }
+    },
+    "Notification": {
+      "collection": "notifications",
+      "fields": {
+        "id": { "type": "string", "description": "Notification identifier" },
+        "userId": { "type": "string", "description": "Recipient UID" },
+        "type": { "type": "string", "description": "Notification type" },
+        "title": { "type": "string", "description": "Notification heading" },
+        "message": { "type": "string", "description": "Notification body" },
+        "read": { "type": "boolean", "description": "Read flag" },
+        "createdAt": { "type": "string", "description": "Timestamp" }
+      }
+    },
+    "FriendRequest": {
+      "collection": "friendRequests",
+      "fields": {
+        "requestId": { "type": "string", "description": "Request unique ID" },
+        "senderId": { "type": "string", "description": "Sender UID" },
+        "receiverId": { "type": "string", "description": "Receiver UID" },
+        "status": { "type": "string", "description": "pending, accepted, rejected, cancelled" },
+        "createdAt": { "type": "string", "description": "Creation timestamp" },
+        "updatedAt": { "type": "string", "description": "Last update timestamp" }
+      }
+    },
+    "Friend": {
+      "collection": "friends",
+      "fields": {
+        "friendshipId": { "type": "string", "description": "Friendship record ID" },
+        "userIds": { "type": "array", "description": "Array of both friend UIDs" },
+        "createdAt": { "type": "string", "description": "Friendship established timestamp" }
+      }
+    },
+    "Post": {
+      "collection": "posts",
+      "fields": {
+        "postId": { "type": "string", "description": "Post unique ID" },
+        "authorId": { "type": "string", "description": "Author UID" },
+        "authorUserId": { "type": "string", "description": "Author public user ID (SWP+6 digits)" },
+        "authorName": { "type": "string", "description": "Author display name" },
+        "authorPhoto": { "type": "string", "description": "Author profile photo URL" },
+        "title": { "type": "string", "description": "Post title/headline" },
+        "content": { "type": "string", "description": "Post text content" },
+        "imageUrl": { "type": "string", "description": "Optional attached image URL" },
+        "skillTags": { "type": "array", "description": "Associated skill or topic tags" },
+        "category": { "type": "string", "description": "Category: แชร์ความรู้, แนะนำวิชา, เทคนิคการเรียน, ผลงาน, ขอคำแนะนำ, ทั่วไป" },
+        "likeCount": { "type": "number", "description": "Number of likes" },
+        "commentCount": { "type": "number", "description": "Number of comments" },
+        "createdAt": { "type": "string", "description": "Creation timestamp" },
+        "updatedAt": { "type": "string", "description": "Update timestamp" }
+      }
+    },
+    "Report": {
+      "collection": "reports",
+      "fields": {
+        "reportId": { "type": "string", "description": "Report unique ID" },
+        "reporterId": { "type": "string", "description": "Reporter UID" },
+        "reportedUserId": { "type": "string", "description": "Reported user UID" },
+        "postId": { "type": "string", "description": "Target post ID if reporting a post" },
+        "reason": { "type": "string", "description": "Reason for report (เนื้อหาไม่เหมาะสม, สแปม, etc.)" },
+        "details": { "type": "string", "description": "Additional report details provided by user" },
+        "status": { "type": "string", "description": "Status: pending, reviewed, resolved, dismissed" },
+        "createdAt": { "type": "string", "description": "Report submission timestamp" }
+      }
+    },
+    "PostLike": {
+      "collection": "postLikes",
+      "fields": {
+        "postId": { "type": "string", "description": "Target post ID" },
+        "userId": { "type": "string", "description": "Liker UID" },
+        "createdAt": { "type": "string", "description": "Liked timestamp" }
+      }
+    },
+    "Comment": {
+      "collection": "comments",
+      "fields": {
+        "commentId": { "type": "string", "description": "Comment unique ID" },
+        "postId": { "type": "string", "description": "Parent post ID" },
+        "userId": { "type": "string", "description": "Commenter UID" },
+        "content": { "type": "string", "description": "Comment text" },
+        "createdAt": { "type": "string", "description": "Comment created timestamp" },
+        "updatedAt": { "type": "string", "description": "Comment updated timestamp" }
+      }
+    }
+  }
+}
